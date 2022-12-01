@@ -9,7 +9,8 @@ from testit_bot.testit.testit_client import TestitClient
 config = load_config()
 
 testit_client = TestitClient(url=config.testit.url,
-                             private_token=config.testit.token)
+                             private_token=config.testit.token,
+                             project_id=config.testit.project_id)
 connect_mongodb = ConnectionMongoDBMotor(host=config.mongodb.host,
                                          port=config.mongodb.port).connect_db()
 

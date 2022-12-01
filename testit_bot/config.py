@@ -15,6 +15,7 @@ class MongoDbConfig:
 class TestitConfig:
     token: str
     url: str
+    project_id: str
 
 
 @dataclass
@@ -42,6 +43,7 @@ def load_config():
         ),
         testit=TestitConfig(
             token=os.getenv('private_token_testit'),
-            url=os.getenv('url_testit')
+            url=os.getenv('url_testit'),
+            project_id=os.getenv('project_id')
         )
     )

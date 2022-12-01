@@ -7,15 +7,12 @@ from testit_bot.db.db import ActionMongoDBMotor, ConnectionMongoDBMotor
 from testit_bot.testit.api.testit_client_api import TestItClientApi
 
 
-# project_id = '6158cf81-ae35-4fe4-bf3d-cffa089bacc5'  # ZIIOT
-# project_id = 'f539b1b1-a6d1-42c1-b9c6-c922bd5605fd'  # Autotest
-
 class TestitClient:
-    def __init__(self, url, private_token):  # url, private_token, project_id
+    def __init__(self, url, private_token, project_id):
         self.__url = url
         self.__private_token = private_token
         self.testit_client_api = TestItClientApi(url=self.__url, private_token=self.__private_token)
-        self.project_id = '6158cf81-ae35-4fe4-bf3d-cffa089bacc5'
+        self.project_id = project_id
 
     async def create_entities_in_batches(self,
                                          function,
