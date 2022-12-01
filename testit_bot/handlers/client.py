@@ -37,7 +37,8 @@ async def testit_find_all_changed_autotest_command(message: Message):
     await message.answer('* Получаем общее количество автотестов')
     autotests_count = await testit_client.get_autotests_count()
 
-    await message.answer(f'* Добавляем все автотесты ({autotests_count}) в mongodb')
+    await message.answer(f'* Добавляем все автотесты ({autotests_count}) в mongodb.\n'
+                         f'  .... Идет загрузка в базу ....')
     await testit_client.create_entities_in_batches(function=testit_client.write_autotests_to_db,
                                                    entities_count=autotests_count,
                                                    entities_per_account=entities_per_account,
